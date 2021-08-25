@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
+<title>Yeap Captcha</title>
+<script src="https://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
+</head>
+<body>
+<div id="yeap-verify" class="yeap-verify" data-type="rotate">
+</div>
+<script src="https://captcha_cdn.yeapcloud.com/verify.js?_t=6.2" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+		// 加一个div全部 然后设置display：block；
+		
+            var success = function(res){
+                console.log(res)
+                alert('成功，token:'+res.token)
+            }
+            var cancel = function(){
+                alert('取消验证')
+            }
+            $.get('./backend.php?act=challenge', function (res){
+                yeapcloud_verify.btn = '#yeap-verify';
+                //$(".btn");
+                //yeapcloud_verify.type = 'rotate';
+                yeapcloud_verify.active(res.token, success, cancel);
+            }, 'json')
+            
+		})*/
+	</script>
+</body>
+</html>
